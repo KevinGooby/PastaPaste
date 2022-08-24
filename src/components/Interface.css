@@ -1,0 +1,11 @@
+.top-bar {
+    justify-content: center;
+    padding: 20px 0px;
+    width: 297px;
+    background-color: #343434;
+    margin-bottom: 0px;
+}
+
+.top-logo {
+    max-width: 35px;
+}
