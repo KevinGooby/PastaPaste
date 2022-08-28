@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.chunk {
+    position: relative;
+    border-radius: 15px;
+    background: #4e4d71;
+    width: 258px;
+    height: 72px;
+    margin: 10px 5px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out box-shadow;
+    overflow: hidden;
+}
+
+.title {
+    font-size: 15px;
+    position: absolute;
+    top: 5px;
+    left: 15px;
+}
+
+.text {
+    font-size: 10px;
+    font-weight: 100px;
+    position: absolute;
+    top: 25px;
+    left: 15px;
+}
+
+.copy-icon {
+    position: absolute;
+    top: 28px;
+    right: 28px;
+    z-index: 3;
+    max-width: 15px;
+}
