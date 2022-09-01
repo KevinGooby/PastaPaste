@@ -4,16 +4,23 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-.chunk {
+/* /* .chunk {
     position: relative;
     border-radius: 15px;
     background: #4e4d71;
     width: 258px;
     height: 72px;
     margin: 10px 5px;
-    cursor: pointer;
-    transition: 0.2s ease-in-out box-shadow;
-    overflow: hidden;
+    padding: 5px;
+}
+
+.chunk-expanded {
+    position: relative;
+    border-radius: 15px;
+    background: #4e4d71;
+    padding: 5px;
+    width: 258px;
+    margin: 10px 5px;
 }
 
 .title {
@@ -21,6 +28,7 @@
     position: absolute;
     top: 5px;
     left: 15px;
+    cursor: pointer;
 }
 
 .text {
@@ -37,4 +45,118 @@
     right: 28px;
     z-index: 3;
     max-width: 15px;
+    transition: ease 0.3s;
+}
+
+.copy-icon:hover {
+    cursor: pointer;
+}
+
+.delete-icon {
+    max-width: 15px;
+}
+
+.text-expanded {
+    position: relative;
+    text-align: left;
+    font-size: 12px;
+    top: 15px;
+    max-width: 220px;
+    padding-left: 15px;
+} */
+
+/*
+.chunk {
+    border-radius: 20px;
+    background: #4e4d71;
+    padding: 5px 55px 0px 15px;
+    margin: 10px 15px;
+    justify-content: space-between;
+}
+
+.title {
+    position: relative;
+    font-size: 15px;
+    text-align: left;
+    margin: 5px 5px 2px 0px;
+}
+
+.text {
+    position: relative;
+    font-size: 10px;
+    font-weight: 300;
+    text-align: left;
+    margin: 0px;
+    top: 
+}
+
+.copy-icon {
+    max-width: 15px;
+    cursor: pointer;
+    position: relative;
+    top: 15px;
+    left: 100px;
+}
+
+.delete-icon {
+    max-width: 15px;
+    cursor: pointer;
+} */
+
+.chunk {
+    border-radius: 18px;
+    background: #4e4d71;
+    position: relative;
+    margin: 14px 15px;
+    height: 70px;
+    padding: 5px 23px 10px 23px;
+}
+
+.title {
+    font-size: 15px;
+    text-align: left;
+    margin: 0px 70px 0px 0px;
+    cursor: pointer;
+}
+
+.text {
+    font-size: 12px;
+    font-weight: 300;
+    text-align: left;
+    margin: 0px;
+}
+
+.text-grouping {
+    margin: 10px 20px 8px 0px;
+    width: 200px;
+    float: left;
+}
+
+.copy-icon {
+    max-width: 15px;
+    position: absolute;
+    top: 33px;
+    right: 25px;
+}
+
+.text-stats {
+    text-align: left;
+    font-size: 10px;
+    font-weight: 300;
+    margin: 15px 0px;
+    position: flex;
+    bottom: 0px;
+}
+
+.delete-icon {
+    max-width: 15px;
+    cursor: pointer;
+    position: absolute;
+    top: 63px;
+    right: 25px;
+}
+
+.expanded {
+    height: auto;
+    min-height: 100px;
 }

@@ -6,8 +6,7 @@ import InfoIcon from "../assets/InfoIcon.png";
 import React from "react";
 import BackArrow from "../assets/BackArrow.png";
 import { toHaveFocus } from "@testing-library/jest-dom/dist/matchers";
-
-
+import { flushSync } from "react-dom";
 
 
     // function to render specific components -> use those functions based off of a piece of state
@@ -31,12 +30,12 @@ class Interface extends React.Component {
         this.handleRenderSettings = this.handleRenderSettings.bind(this);
         this.handleAddChunk = this.handleAddChunk.bind(this);
         this.handleReturnToHome = this.handleReturnToHome.bind(this);
-        this.state = {middleState: "chunklist-empty"}
+        this.state = {middleState: "chunklist"}
     }
 
     // Temporary testing method: Remove later
     handleReturnToHome() {
-        this.setState({middleState: "chunklist-empty"})
+        this.setState({middleState: "chunklist"})
     }
 
     handleRenderInfo() {
@@ -48,18 +47,17 @@ class Interface extends React.Component {
     }
 
     handleAddChunk() {
-        this.setState({middleState: "chunklist"});
+        this.setState({middleState: "add"});
     }
     
     render() {
         let middleState = this.state.middleState;
-
         const topbar = (
             // Remove the onClick for returnToHome later
             <div class="top-bar">
                 <img src={ BackArrow } class="back-arrow" onClick={this.handleReturnToHome}
                 style={{
-                    display: (middleState === "settings" || middleState === "info") ? "inline" : "none"
+                    display: (middleState === "settings" || middleState === "info" || middleState === "add") ? "inline" : "none"
                 }} />
                 <img src={ WhiteLogo } class="top-logo" onClick={this.handleReturnToHome} />
             </div>
@@ -72,7 +70,7 @@ class Interface extends React.Component {
             </div>
         )
 
-        let chunkList = <ChunkList condition={ middleState } />
+        let chunkList = <ChunkList condition={ middleState } returnHomeHandler={ this.handleReturnToHome }/>
 
         return (
             <div class="interface">

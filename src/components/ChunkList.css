@@ -7,8 +7,9 @@
 .chunklist {
     width: 297px;
     background-color: #343434;
-    display: grid;
     justify-content: center;
+    height: 410px;
+    overflow: scroll;
 }
 /* Temporary: Remove + adapt later */
 .buffer {
@@ -48,7 +49,8 @@
     background: #343434;
     width: 297px;
     text-align: left;
-    padding-bottom: 7px;
+    padding-bottom: 8px;
+    margin-bottom: 0px;
 }
 
 .info-screen {
@@ -101,7 +103,7 @@
 
 .settings-buffer {
     width: 297px;
-    height: 132px;
+    height: 129px;
 }
 
 .info-text {
@@ -115,9 +117,4 @@
     display: flex;
     margin: auto;
     border-radius: 15px;
-}
-
-.info-buffer {
-    width: 297px;
-    height: 1px;
 }

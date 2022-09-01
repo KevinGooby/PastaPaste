@@ -3,26 +3,22 @@ import Chunk from "./Chunk.js";
 import FlushedFace from "../assets/FlushedFace.png";
 import Arrow from "../assets/Arrow.png";
 import PastaPasteInfo from "../assets/PastaPasteInfo.jpg";
+import AddScreen from "./AddScreen.js"
+import React from "react";
 
 
-const ChunkList = (props) => {
-    let condition = props.condition;
+class ChunkList extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
-    // react .map
-    // research useState
-    // json object -> click + -> open up form -> add to that json -> .map over the json to render chunks
-    // research cookies/localstorage in react
-    
-    if (condition === "chunklist") {
-        return (
-            <div class="chunklist">
-                <Chunk title="Testing" text="LOREM IPSUM DOLOR SIT AMET..." clicked="false"/>
-                <Chunk title="Bee Movie Script" text="According to all laws of..." clicked="false" />
-                <div class="buffer"></div>
-            </div>
-        )
-    } else if (condition === "chunklist-empty") {
-        return (
+    render() {
+        let condition = this.props.condition;
+        let emptyList = false;
+        const beeMovieScriptTest = "According to all known laws of aviation, there is no way a bee should be able to fly. The bee flies anyways because idk something";
+        const listOfTitles = ["Hello Guys! Title", "Bee Movie Script"]; // This needs to be parsed from JSON later
+
+        const emptyListToRender = (
             <div class="chunklist-empty">
                 <img class="emoji" src={FlushedFace}></img>
                 <h1 class="large-message">There isn't anything here...</h1>
@@ -30,8 +26,16 @@ const ChunkList = (props) => {
                 <img class="arrow" src={ Arrow }></img>
             </div>
         )
-    } else if (condition === "settings") {
-        return (
+
+        const listToRender = (
+            <div class="chunklist">
+                {listOfTitles.map(title => (
+                    <Chunk title={title} text={beeMovieScriptTest} />
+                ))}
+            </div>
+        )
+
+        const settingsToRender = (
             <div class="side-screen">
                 <h2 class="title-header">Settings</h2>
                 <div class="delete-all">
@@ -43,8 +47,8 @@ const ChunkList = (props) => {
                 <div class="settings-buffer"></div>
             </div>
         )
-    } else {
-        return (
+
+        const infoToRender = (
             <div class="side-screen">
                 <h2 class="title-header">Information</h2>
                 <p class="info-text">Hello! This is a Chrome extension I developed to help people design documents,
@@ -56,6 +60,30 @@ const ChunkList = (props) => {
                 <div class="info-buffer"></div>
             </div>
         )
+
+        const addScreenToRender = (
+            <AddScreen returnHomeHandler={ this.props.returnHomeHandler }/>
+        )
+
+        switch (condition) {
+            case "chunklist":
+                if (emptyList) {
+                    return emptyListToRender;
+                    break;
+                } else {
+                    return listToRender;
+                    break;
+                }
+            case "add":
+                return addScreenToRender;
+                break;
+            case "settings":
+                return settingsToRender;
+                break;
+            case "info":
+                return infoToRender;
+                break;
+        }
     }
 }
 
